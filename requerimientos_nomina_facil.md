@@ -130,10 +130,16 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 
 ### 5.1 Requisitos de negocio
 - El sistema debe permitir realizar remuneraciones conforme a la normativa laboral vigentes.
-- Debe registrar cotizaciones previsionales y salud asociadas al trabajador.
+- Debe registrar contratos, finiquitos, despidos, renuncias voluntarias.
+- Debe registrar el horario de ingreso y salida del trabajador.
+- Debe gestionar calculos de impuestos de segunda categoria.
+- Debe gestionar descuentos de cajas de compensacion.
+- Debe permitir administrar anticipos, horas extras, bonos, gratificaciones, asignaciones.
+- Debe registrar cotizaciones previsionales, APV, salud, AFC asociadas al trabajador.
 - Debe permitir administrar licencias médicas con soporte documental.
 - Debe mantener una relación segura y trazable entre trabajador y cuenta bancaria de pago.
 - El portal del trabajador debe mostrar información de forma limitada y segura.
+- El administrador no puede acceder a informacion confidencial de licencias medicas.
 
 ### 5.2 Requisitos de información
 - La información sensible debe clasificarse y protegerse.
@@ -142,7 +148,7 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - Cada registro debe relacionarse con empresa, empleado y periodo.
 
 ### 5.3 Requisitos de usuario
-- inicio de sesión seguro
+- inicio de sesión seguro con MFA
 - autenticación con credenciales robustas
 - control de sesiones
 - permisos por perfil
@@ -287,13 +293,14 @@ Bibliotecas con fallas conocidas y actualizaciones pendientes.
 - exposición de información a terceros no autorizados
 
 ### Severidad esperada
+|---------------------------------------|---------|--------------|-----------|
 | Riesgo                                | Impacto | Probabilidad | Severidad |
 |---------------------------------------|---------|--------------|-----------|
-| filtración de sueldos                 | alto    | media        | crítico   |
-| robo de sesión                        | alto    | media        | crítico   |
 | manipulación de nómina                | crítico | media        | crítico   |
 | acceso a información médica           | crítico | media        | crítico   |
 | cambio fraudulento de cuenta bancaria | crítico | media        | crítico   |
+| filtración de sueldos                 | alto    | media        | crítico   |
+| robo de sesión                        | alto    | media        | crítico   |
 | falta de trazabilidad                 | alto    | alta         | alto      |
 | credenciales expuestas                | alto    | media        | alto      |
 | XSS y CSRF                            | alto    | media        | alto      |
@@ -328,7 +335,7 @@ La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza 
 ### 11.4 Mantenibilidad
 - código modular y documentado
 - pruebas unitarias y de integración
-- despliegue con Docker
+- despliegue con Vercel
 - arquitectura separada por dominio funcional
 
 ## 12. Requisitos tecnológicos
@@ -339,7 +346,7 @@ La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza 
 - React
 - Tailwind CSS
 - ORM prisma supabase
-- Docker
+- Vercel
 
 ### Arquitectura sugerida
 - backend en Node.js para autenticación, lógica de negocio y servicios de nómina
@@ -350,6 +357,9 @@ La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza 
 - contenedores para entorno de desarrollo y producción
 - variables de entorno para configuración segura
 - autenticación JWT o sesiones con node.js según el diseño final
+
+
+-------------aqui voy
 
 ## 13. Historias de usuario
 
