@@ -20,11 +20,15 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - gestionar Atrasos
 - gestionar Contrataciones
 - gestionar finiquitos
-- 
+- registro de entrada y salida laboral
+- gestion de vacaciones
+- gestion de horas extra
 
 ### Objetivos específicos
 - automatizar procesos de remuneración
 - reducir errores manuales en la liquidación
+- Automatizar procesos de contratacion y finiquitos
+- Automatizar procesos de calculos de ingresos y egresos 
 - mantener historial de pagos y cambios
 - permitir consulta de información a trabajadores con acceso controlado
 - asegurar confidencialidad, integridad y disponibilidad de los datos
@@ -42,17 +46,22 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 
 ### 3.2 Gestión de remuneraciones
 - sueldo base
+- ingresos y salidas
 - horas extra
 - bonos
 - descuentos
 - asignaciones y beneficios
+- descuentos previsionales
 - liquidación de sueldos por periodo
 - historial de pagos
 
+
 ### 3.3 Cotizaciones previsionales
 - cotizaciones de salud
-- cotizaciones previsionales
-- aporte de seguridad social
+- cotizaciones AFP
+- AFC
+- impuesto de segunda categoria
+- prestamos
 - registro por periodo
 - historial y conciliación
 
@@ -76,6 +85,9 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - consulta de licencias médicas
 - estado de cuenta y datos bancarios
 - descarga de comprobantes asociados
+- tiempo en la empresa
+- renuncia voluntaria
+- denuncias
 
 ### 3.7 Administración y seguridad
 - roles y permisos por perfil
@@ -91,9 +103,14 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - registra pagos y liquidaciones
 - valida licencias
 - configura parámetros de nómina
+- valida ingreso y salida trabajador
+- gestionar renuncias y despidos
+- gestion de contratos
 
 ### 4.2 Administrador de empresa o gerencia
 - revisa reportes
+- administra cuentas
+- administrar datos del negocio
 - analiza indicadores de nómina
 - aprueba cambios importantes
 
@@ -109,6 +126,8 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - gestiona incidentes de seguridad
 
 ## 5. Requisitos funcionales
+
+---------aqui quede
 
 ### 5.1 Requisitos de negocio
 - El sistema debe permitir realizar remuneraciones conforme a la normativa laboral vigentes.
