@@ -33,9 +33,78 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - permitir consulta de información a trabajadores con acceso controlado
 - asegurar confidencialidad, integridad y disponibilidad de los datos
 
-## 3. Alcance funcional
+## 3. Proceso DevOps y DevSecOps del equipo
+Enfoque DevOps y DevSecOps
 
-### 3.1 Administración de empleados
+El proyecto Nómina Fácil adoptará un enfoque DevOps y DevSecOps con el propósito de integrar el desarrollo, las pruebas, la seguridad y las operaciones durante todo el ciclo de vida de la aplicación.
+
+El enfoque DevSecOps resulta especialmente relevante para Nómina Fácil debido a que el sistema contempla información sensible de los trabajadores, incluyendo datos personales, remuneraciones, cotizaciones previsionales, información bancaria y documentación médica.
+
+Como referencia para la planificación de seguridad se utilizarán principalmente:
+
+-NIST Secure Software Development Framework (SSDF) SP 800-218, que establece prácticas de desarrollo seguro que pueden integrarse en diferentes modelos de ciclo de vida del software. Su objetivo incluye reducir vulnerabilidades en el software publicado y abordar sus causas para evitar recurrencias.
+-OWASP Application Security Verification Standard (ASVS), que proporciona una base para definir y verificar controles técnicos de seguridad en aplicaciones web. OWASP ASVS contempla áreas como autenticación, sesiones, autorización, criptografía, comunicaciones, protección de datos, configuración y registro de eventos.
+-ISO/IEC 27001, como referencia para la gestión de riesgos asociados a la seguridad de la información.
+
+Para integrar ambos enfoques, el equipo considerará seguridad en las fases de planificación, programación, construcción, pruebas, publicación, despliegue, operación y monitorización.
+### 3.1Planificar
+
+Durante la fase de planificación se definirán los requerimientos funcionales, no funcionales y de seguridad de Nómina Fácil, además de los usuarios, roles, arquitectura y riesgos relevantes del sistema.
+
+Debido a que la aplicación gestionará información salarial, bancaria, previsional y médica, el equipo efectuará un análisis de amenazas sobre los componentes que gestionen estos datos.
+
+- Prácticas de seguridad planificadas
+- Identificación de activos sensibles.
+- Clasificación de información.
+- Definición de requisitos de seguridad.
+- Aplicación del principio de mínimo privilegio.
+- Modelado de amenazas mediante STRIDE.
+- Análisis de riesgos.
+- Incorporación de tareas de seguridad al backlog.
+
+Estándares de referencia: NIST SSDF, OWASP ASVS e ISO/IEC 27001.
+
+Evidencias previstas:
+
+- matriz STRIDE;
+- requisitos de seguridad;
+- backlog en Azure Boards;
+- diagrama de arquitectura;
+- matriz de riesgos.
+
+El NIST SSDF establece que las prácticas de desarrollo seguro deben incorporarse al ciclo de vida del software, en lugar de tratar la seguridad como una actividad separada.
+
+### 3.2 Programar
+
+Durante la fase de programación se desarrollarán las funcionalidades de frontend y backend definidas para Nómina Fácil.
+
+Según el diseño tecnológico planteado actualmente, se contempla React con TypeScript para frontend, Node.js para backend y una API REST/JSON para la comunicación entre componentes.
+
+Cada funcionalidad será desarrollada procurando aplicar controles de seguridad desde el código.
+
+Prácticas de seguridad planificadas
+- Validación de datos recibidos por el backend.
+- Control de autorización.
+- Protección de rutas sensibles.
+- Manejo seguro de errores.
+- Evitar contraseñas, tokens o claves directamente en el código.
+- Uso de variables de entorno para configuración sensible.
+- Revisión del código mediante Pull Request antes de su integración.
+
+Referencia: OWASP ASVS y NIST SSDF.
+
+OWASP ASVS incluye categorías específicas relacionadas con validación, autenticación, gestión de sesiones, autorización, servicios web, criptografía, comunicaciones y protección de datos, todas relevantes para la aplicación.
+
+Evidencias previstas:
+
+- ramas de desarrollo;
+- Pull Requests;
+- revisiones de código;
+- commits;
+- pruebas asociadas.
+## 4. Alcance funcional
+
+### 4.1 Administración de empleados
 - datos personales
 - RUT y contacto
 - cargo y contrato
@@ -44,7 +113,7 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - cuenta bancaria asociada
 - estado laboral
 
-### 3.2 Gestión de remuneraciones
+### 4.2 Gestión de remuneraciones
 - sueldo base
 - ingresos y salidas
 - horas extra
@@ -56,7 +125,7 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - historial de pagos
 
 
-### 3.3 Cotizaciones previsionales
+### 4.3 Cotizaciones previsionales
 - cotizaciones de salud
 - cotizaciones AFP
 - AFC
@@ -65,20 +134,20 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - registro por periodo
 - historial y conciliación
 
-### 3.4 Licencias médicas
+### 4.4 Licencias médicas
 - registro de licencias médicas
 - carga de certificados médicos
 - cálculo de días de licencia
 - validación por periodo
 - vinculaciones con el área de RR.HH
 
-### 3.5 Cuentas bancarias
+### 4.5 Cuentas bancarias
 - registro de cuenta de pago
 - actualización de cuenta y validación
 - historial de cambios
 - control de autorizaciones
 
-### 3.6 Portal del trabajador
+### 4.6 Portal del trabajador
 - consulta de sueldos
 - historial de liquidaciones
 - acceso a cotizaciones previsionales
@@ -89,16 +158,16 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - renuncia voluntaria
 - denuncias
 
-### 3.7 Administración y seguridad
+### 4.7 Administración y seguridad
 - roles y permisos por perfil
 - registro de auditoría
 - trazabilidad de cambios
 - control de sesiones
 - gestión de accesos y revocación
 
-## 4. Usuarios y roles
+## 5. Usuarios y roles
 
-### 4.1 Administrador de RR.HH o Nómina
+### 5.1 Administrador de RR.HH o Nómina
 - gestiona empleados
 - registra pagos y liquidaciones
 - valida licencias
@@ -107,28 +176,28 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - gestionar renuncias y despidos
 - gestion de contratos
 
-### 4.2 Administrador de empresa o gerencia
+### 5.2 Administrador de empresa o gerencia
 - revisa reportes
 - administra cuentas
 - administrar datos del negocio
 - analiza indicadores de nómina
 - aprueba cambios importantes
 
-### 4.3 Trabajador
+### 5.3 Trabajador
 - consulta sus datos personales
 - revisa su sueldo y liquidaciones
 - revisa cotizaciones y licencias
 - actualiza sus datos autorizados
 
-### 4.4 Soporte / Seguridad / Auditoría
+### 5.4 Soporte / Seguridad / Auditoría
 - revisa logs y eventos
 - valida accesos y permisos
 - gestiona incidentes de seguridad
 - gestiona trazabilidades
+  
+## 6. Requisitos funcionales
 
-## 5. Requisitos funcionales
-
-### 5.1 Requisitos de negocio
+### 6.1 Requisitos de negocio
 - El sistema debe permitir realizar remuneraciones conforme a la normativa laboral vigentes.
 - Debe registrar contratos, finiquitos, despidos, renuncias voluntarias.
 - Debe registrar el horario de ingreso y salida del trabajador.
@@ -141,22 +210,22 @@ Crear un sistema de gestión de nómina y portal del trabajador que permita:
 - El portal del trabajador debe mostrar información de forma limitada y segura.
 - El administrador no puede acceder a informacion confidencial de licencias medicas.
 
-### 5.2 Requisitos de información
+### 6.2 Requisitos de información
 - La información sensible debe clasificarse y protegerse.
 - Los datos deben mantenerse auditables.
 - Debe existir control de retención de información.
 - Cada registro debe relacionarse con empresa, empleado y periodo.
 
-### 5.3 Requisitos de usuario
+### 6.3 Requisitos de usuario
 - inicio de sesión seguro con MFA
 - autenticación con credenciales robustas
 - control de sesiones
 - permisos por perfil
 - recuperación de credenciales segura
 
-## 6. Requisitos legales y normativos
+## 7. Requisitos legales y normativos
 
-### 6.1 Código del Trabajo
+### 7.1 Código del Trabajo
 El sistema debe contemplar, al menos, lo siguiente:
 - liquidación de remuneraciones
 - pagos de sueldo conforme a la legislación
@@ -166,7 +235,7 @@ El sistema debe contemplar, al menos, lo siguiente:
 - registro de contratos y condiciones laborales
 - respaldo documental y auditoría
 
-### 6.2 Ley 21.719
+### 7.2 Ley 21.719
 La plataforma debe cumplir los principios de protección de datos personales, especialmente:
 - finalidad específica y legítima del tratamiento
 - minimización de datos
@@ -177,51 +246,51 @@ La plataforma debe cumplir los principios de protección de datos personales, es
 - notificación de incidentes frente a la autoridad correspondiente
 - tratamiento responsable de datos sensibles
 
-### 6.3 Requisitos de privacidad y seguridad
+### 7.3 Requisitos de privacidad y seguridad
 - política de privacidad accesible
 - consentimiento claro para tratamiento de datos
 - registro de tratamiento de datos
 - manejo seguro de documentos médicos y financieros
 - control de accesos por perfil y necesidad de conocer
 
-## 7. Requisitos de seguridad según ISO 27002
+## 8. Requisitos de seguridad según ISO 27002
 
-### 7.1 Control de acceso
+### 8.1 Control de acceso
 - asignación de roles y permisos
 - mínimo privilegio
 - revisión periódica de accesos
 - autenticación multifactor para accesos sensibles
 - revocación de accesos ante cambios de personal
 
-### 7.2 Seguridad de activos
+### 8.2 Seguridad de activos
 - clasificación de datos por sensibilidad
 - cifrado en tránsito y en reposo
 - manejo seguro de secretos y variables de entorno
 - copias de seguridad cifradas
 
-### 7.3 Criptografía
+### 8.3 Criptografía
 - TLS para conexiones web
 - hash seguro para contraseñas
 - protección de archivos sensibles
 - gestión segura de claves y certificados
 
-### 7.4 Seguridad operativa
+### 8.4 Seguridad operativa
 - monitorización y registro de eventos
 - alertas por actividad anómala
 - actualizaciones periódicas de dependencias
 - gestión de parches y revisión de vulnerabilidades
 
-### 7.5 Auditoría y trazabilidad
+### 8.5 Auditoría y trazabilidad
 - registro de accesos e interacciones sensibles
 - historial de cambios en nómina y cuentas bancarias
 - bitácora de actividad por usuario y módulo
 
-### 7.6 Gestión de terceros
+### 8.6 Gestión de terceros
 - evaluación de proveedores de infraestructura y servicios
 - políticas de seguridad para integración con terceros
 - cubrimiento contractual en tratamiento de datos
 
-## 8. Requisitos según ISO 27005
+## 9. Requisitos según ISO 27005
 
 La ISO 27005 guía la gestión de riesgos. El proyecto debe incluir:
 - identificación de activos críticos
@@ -230,7 +299,7 @@ La ISO 27005 guía la gestión de riesgos. El proyecto debe incluir:
 - tratamiento del riesgo
 - seguimiento y revisión continua
 
-### 8.1 Activos críticos
+### 9.1 Activos críticos
 - base de datos de trabajadores
 - liquidaciones y remuneraciones
 - información previsional y de salud
@@ -239,7 +308,7 @@ La ISO 27005 guía la gestión de riesgos. El proyecto debe incluir:
 - registros de auditoría
 - infraestructura de despliegue
 
-### 8.2 Riesgos principales
+### 9.2 Riesgos principales
 - filtración de datos salariales
 - acceso no autorizado a información personal
 - manipulación de nómina o pagos
@@ -247,43 +316,43 @@ La ISO 27005 guía la gestión de riesgos. El proyecto debe incluir:
 - ataques a autenticación y sesiones
 - fallos en disponibilidad o servicio
 
-### 8.3 Tratamiento del riesgo
+### 9.3 Tratamiento del riesgo
 - mitigación por control técnico y organizacional
 - separación de funciones
 - políticas de acceso
 - auditoría continua
 - planes de recuperación y continuidad
 
-## 9. Vulnerabilidades comunes en este tipo de sistemas
+## 10. Vulnerabilidades comunes en este tipo de sistemas
 
-### 9.1 SQL Injection
+### 10.1 SQL Injection
 Manipulación de consultas para acceder o modificar información de nómina o trabajadores.
 
-### 9.2 XSS (Cross-Site Scripting)
+### 10.2 XSS (Cross-Site Scripting)
 Ejecutar scripts maliciosos en el portal del trabajador o módulo administrativo.
 
-### 9.3 IDOR / Broken Access Control
+### 10.3 IDOR / Broken Access Control
 Acceso a sueldo, licencias o datos bancarios de otros empleados.
 
-### 9.4 Fuga de información sensible
+### 10.4 Fuga de información sensible
 Exposición de datos de salud, remuneración o cuentas bancarias.
 
-### 9.5 Autenticación débil
+### 10.5 Autenticación débil
 Contraseñas frágiles, sesiones reutilizadas o falta de MFA.
 
-### 9.6 CSRF
+### 10.6 CSRF
 Solicitudes no autorizadas que alteran pagos o ajustes en datos.
 
-### 9.7 Exposición de secretos
+### 10.7 Exposición de secretos
 Credenciales, claves y tokens en archivos de configuración o logs.
 
-### 9.8 Falta de auditoría
+### 10.8 Falta de auditoría
 No se registran cambios críticos ni accesos a información sensible.
 
-### 9.9 Dependencias vulnerables
+### 10.9 Dependencias vulnerables
 Bibliotecas con fallas conocidas y actualizaciones pendientes.
 
-## 10. Análisis de vulnerabilidades del caso
+## 11. Análisis de vulnerabilidades del caso
 
 ### Riesgos críticos del negocio
 - filtración de sueldos y remuneraciones
@@ -309,9 +378,9 @@ Bibliotecas con fallas conocidas y actualizaciones pendientes.
 ### Conclusión
 La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza del trabajador, la empresa y la posible responsabilidad legal asociada a un tratamiento indebido de datos sensibles.
 
-## 11. Requisitos no funcionales
+## 12. Requisitos no funcionales
 
-### 11.1 Seguridad
+### 12.1 Seguridad
 - cifrado de datos sensibles
 - autenticación robusta en frontend y backend
 - control de acceso granular por rol y permisos
@@ -321,24 +390,24 @@ La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza 
 - prevención contra OWASP Top 10 en API y frontend
 - validación de tokens y manejo seguro de CORS/CSRF
 
-### 11.2 Rendimiento
+### 12.2 Rendimiento
 - consultas optimizadas para reportes y liquidaciones
 - respuesta rápida para consultas del trabajador
 - manejo eficiente de grandes volúmenes de datos por periodo
 
-### 11.3 Disponibilidad
+### 12.3 Disponibilidad
 - copias de seguridad periódicas
 - recuperación ante fallas
 - monitoreo del sistema
 - continuidad operativa
 
-### 11.4 Mantenibilidad
+### 12.4 Mantenibilidad
 - código modular y documentado
 - pruebas unitarias y de integración
 - despliegue con Vercel
 - arquitectura separada por dominio funcional
 
-## 12. Requisitos tecnológicos
+## 13. Requisitos tecnológicos
 
 ### Stack propuesto
 - Typescript
@@ -361,7 +430,7 @@ La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza 
 
 -------------aqui voy
 
-## 13. Historias de usuario
+## 14. Historias de usuario
 
 ### Historia 1: Liquidación de sueldo
 Como administrador de RR.HH, quiero realizar el sueldo de los trabajadores para generar pagos correctos.
@@ -396,7 +465,7 @@ Criterios de aceptación:
 - se registra el historial de modificación
 - requiere autorización y auditoría
 
-## 14. Recomendaciones para el desarrollo
+## 15. Recomendaciones para el desarrollo
 
 - usar Node.js con buenas prácticas de seguridad
 - limitar permisos por rol
@@ -407,13 +476,13 @@ Criterios de aceptación:
 - ejecutar análisis de seguridad y actualizaciones de dependencias
 - usar Docker con configuración segura y entorno mínimo
 
-## 15. Conclusión
+## 16. Conclusión
 
 El proyecto de remuneraciones y portal del trabajador para PYMEs requiere un enfoque integral que combine funcionalidad, cumplimiento legal y seguridad de la información. El diseño debe priorizar la protección de los datos salariales, médicos y financieros, considerando la normativa chilena y los estándares internacionales de seguridad.
 
 La propuesta debe desarrollarse con una arquitectura segura, accesos controlados, trazabilidad de eventos y gestión activa de riesgos para reducir la probabilidad de filtración, manipulación o acceso indebido.
 
-## 16. Participantes del proyecto
+## 17. Participantes del proyecto
 
 - Esteban Ramirez - Scrum Master
   - facilita la planificación y seguimiento del proyecto en Azure Boards
@@ -425,6 +494,6 @@ La propuesta debe desarrollarse con una arquitectura segura, accesos controlados
 - Alejandro - Ingeniero de desarrollo
   - diseña e implementa la solución con prácticas de código seguro
 
-## 17. Resumen ejecutivo
+## 18. Resumen ejecutivo
 
 Nómina Fácil es una solución orientada a simplificar la administración de remuneraciones y servicios del trabajador para pequeñas y medianas empresas, con foco en seguridad, cumplimiento y experiencia de usuario. Su desarrollo debe tomar en cuenta no solo la eficiencia operativa, sino también los riesgos asociados a la información sensible de los empleados y la obligación legal de protegerla adecuadamente.
