@@ -429,10 +429,9 @@ La mayor amenaza no es solo la pérdida técnica, sino la pérdida de confianza 
 - variables de entorno para configuración segura
 - autenticación JWT o sesiones con node.js según el diseño final
 
-
--------------aqui voy
-
 ## 14. Historias de usuario
+
+Desde el análisis del proyecto hay que generar el pseudocódigo y expandir las historias de usuario.
 
 ### Historia 1: Liquidación de sueldo
 Como administrador de RR.HH, quiero realizar el sueldo de los trabajadores para generar pagos correctos.
@@ -476,7 +475,7 @@ Criterios de aceptación:
 - usar TLS y cifrado en almacenamiento
 - implementar registro de auditoría en eventos críticos
 - ejecutar análisis de seguridad y actualizaciones de dependencias
-- usar Docker con configuración segura y entorno mínimo
+- usar Vercel con configuración segura y entorno mínimo
 
 ## 16. Conclusión
 
