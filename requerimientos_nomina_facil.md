@@ -102,6 +102,8 @@ Evidencias previstas:
 - revisiones de código;
 - commits;
 - pruebas asociadas.
+
+en proceso -----<andy> agregando 
 ## 4. Alcance funcional
 
 ### 4.1 Administración de empleados
