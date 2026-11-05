@@ -583,4 +583,3 @@ Como proyecto orientado a información sensible y de alto impacto, no basta con 
 7. Preparar despliegue en Vercel y backend externo.
 8. Añadir pruebas y auditoría antes de producción.
 
-Si quieres, en el siguiente paso puedo ayudarte a convertir esta guía en una estructura real del proyecto con carpetas, starter base para backend y frontend, y un plan de entregas por sprints.
