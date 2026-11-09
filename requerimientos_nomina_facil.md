@@ -378,6 +378,129 @@ registros de modificaciones críticas.
 - permisos por perfil
 - recuperación de credenciales segura
 
+### 6.4 Historias de usuario y criterios de aceptación
+
+#### HU-01: Registro y mantenimiento de empleados
+Como RR.HH, quiero registrar y actualizar los datos del trabajador, para mantener un historial laboral completo y confiable.
+
+Criterios de aceptación:
+- El sistema permite crear, consultar, actualizar y desactivar empleados.
+- Se registran nombre, RUT, contacto, cargo, contrato, estado laboral y centro de costos.
+- No se permite duplicar un RUT activo dentro del sistema.
+- Cada cambio relevante queda registrado en auditoría.
+
+#### HU-02: Liquidación de remuneraciones
+Como RR.HH, quiero calcular y gestionar la liquidación de sueldo de cada trabajador, para asegurar pagos correctos y cumplir con la normativa laboral.
+
+Criterios de aceptación:
+- El sistema calcula sueldo base, bonos, horas extra, descuentos y cotizaciones asociadas.
+- Cada liquidación queda asociada a un empleado y a un período específico.
+- Se genera un historial de pagos y liquidaciones por trabajador.
+- El cálculo exige validación de reglas de negocio y condiciones legales.
+
+#### HU-03: Gestión de licencias médicas
+Como RR.HH, quiero registrar licencias médicas y sus respaldos documentales, para controlar ausencias y validar permisos médicos.
+
+Criterios de aceptación:
+- Se permite registrar licencias con fecha de inicio, fin y tipo de licencia.
+- Se admite carga de certificados y documentos médicos.
+- El sistema calcula días de licencia y su estado.
+- El acceso a los documentos médicos está restringido a perfiles autorizados.
+
+#### HU-04: Administración de cuentas bancarias
+Como RR.HH, quiero registrar y actualizar la cuenta de pago del trabajador, para garantizar que el abono se realice en la cuenta autorizada.
+
+Criterios de aceptación:
+- El trabajador puede tener una cuenta asociada activa.
+- Todo cambio de cuenta genera historial y trazabilidad.
+- La modificación requiere autorización según el flujo definido.
+- No se puede cambiar la cuenta sin validación del proceso de negocio.
+
+#### HU-05: Portal del trabajador
+Como trabajador, quiero consultar mi información laboral y financiera de manera segura, para revisar mi nómina, licencias y cotizaciones sin riesgo de exposición indebida.
+
+Criterios de aceptación:
+- El trabajador puede acceder solo a su información personal y laboral.
+- Puede consultar su sueldo, liquidaciones, cotizaciones y licencias.
+- No puede visualizar información de otros empleados ni documentos de terceros.
+- La sesión requiere autenticación vigente y permisos válidos.
+
+#### HU-06: Control de roles y permisos
+Como administrador, quiero definir roles y permisos por perfil, para limitar el acceso a la información sensible según la responsabilidad del usuario.
+
+Criterios de aceptación:
+- Existen roles como RR.HH, gerencia, trabajador, soporte y auditor.
+- Cada operación crítica valida permisos en backend.
+- Un usuario sin autorización no puede acceder a datos salariales, bancarios o médicos.
+- Los cambios de permisos quedan registrados en auditoría.
+
+#### HU-07: Auditoría y trazabilidad
+Como soporte o auditor, quiero revisar accesos, cambios y eventos críticos, para detectar incidentes y mantener trazabilidad del sistema.
+
+Criterios de aceptación:
+- Se registran accesos, cambios de cuenta, modificaciones salariales y licencias.
+- La auditoría incluye usuario, acción, módulo, entidad, fecha y datos relevantes.
+- Los eventos críticos quedan disponibles para revisión y análisis.
+- No se permite eliminar evidencia crítica sin control.
+
+### 6.5 Requisitos no funcionales
+
+#### RNF-01: Disponibilidad y continuidad
+- El sistema debe operar con alta disponibilidad durante los procesos diarios de nómina y consultas del trabajador.
+- Debe existir respaldo y recuperación ante fallos de infraestructura o datos.
+
+#### RNF-02: Rendimiento
+- Las consultas de nómina, reportes y portal del trabajador deben responder en tiempos aceptables para uso diario.
+- El sistema debe soportar la carga esperada de empleados y transacciones sin degradación crítica.
+
+#### RNF-03: Mantenibilidad
+- El proyecto debe mantenerse modular y escalable, con separación clara entre frontend, backend y base de datos.
+- La implementación debe seguir patrones de capas, servicios y repositorios.
+
+#### RNF-04: Auditoría y trazabilidad
+- Toda operación crítica debe quedar registrada con metadata suficiente para investigación y cumplimiento.
+- La trazabilidad debe ser observable por RR.HH, soporte y auditoría.
+
+#### RNF-05: Cumplimiento legal y de privacidad
+- El sistema debe cumplir con la normativa laboral vigente y la Ley 21.719.
+- Debe existir tratamiento mínimo indispensable, retención definida y control de acceso por necesidad de conocer.
+
+#### RNF-06: Compatibilidad y despliegue
+- La solución debe funcionar con React + TypeScript en frontend y Node.js + TypeScript en backend.
+- Debe ser desplegable en entornos de desarrollo, staging y producción con configuración segura.
+
+### 6.6 Requisitos de seguridad
+
+#### RSEG-01: Autenticación segura
+- El sistema debe exigir autenticación robusta con credenciales válidas.
+- Los perfiles sensibles deben requerir MFA.
+- Las sesiones deben expirar y reutilizarse con políticas de seguridad definidas.
+
+#### RSEG-02: Autorización por rol y mínimo privilegio
+- El acceso a información salarial, médica o bancaria debe validarse por backend.
+- El principio de mínimo privilegio debe aplicarse en usuarios, roles y permisos.
+- Un trabajador no puede acceder a información de otros empleados.
+
+#### RSEG-03: Protección de datos sensibles
+- Los datos salariales, bancarios, previsionales y médicos deben protegerse con cifrado en tránsito y en reposo.
+- Los archivos adjuntos sensibles deben almacenarse de forma segura.
+- Los registros de auditoría no deben exponer secretos ni información confidencial.
+
+#### RSEG-04: Prevención de vulnerabilidades comunes
+- El sistema debe protegerse contra SQL Injection, XSS, CSRF, IDOR y exposición de secretos.
+- Se debe validar la entrada de datos en backend y controlar los errores para no revelar información técnica.
+- Las dependencias deben mantenerse actualizadas y revisadas.
+
+#### RSEG-05: Auditoría y monitoreo
+- El sistema debe registrar intentos fallidos de autenticación, cambios de permisos, accesos sensibles y modificaciones críticas.
+- Los eventos de seguridad deben ser revisables por auditoría y soporte.
+- Se deben activar alertas para actividades sospechosas o accesos no autorizados.
+
+#### RSEG-06: Seguridad de despliegue
+- No se deben registrar credenciales ni secretos en repositorios ni logs.
+- Las variables de entorno deben manejarse a través de un mecanismo seguro.
+- El despliegue debe ejecutarse sobre conexiones HTTPS/TLS con configuración segura.
+
 ## 7. Requisitos legales y normativos
 
 ### 7.1 Código del Trabajo
