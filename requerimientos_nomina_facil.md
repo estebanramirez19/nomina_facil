@@ -103,7 +103,160 @@ Evidencias previstas:
 - commits;
 - pruebas asociadas.
 
-en proceso -----<andy> agregando 
+
+### 3.3 Construir
+
+En esta etapa los diferentes componentes del sistema serán preparados para generar una versión ejecutable y reproducible del software.
+
+El proyecto contempla actualmente el uso de Docker para sus entornos, por lo que la construcción de la aplicación deberá considerar las dependencias necesarias para el frontend y backend sin incorporar información secreta dentro de los artefactos generados.
+
+Prácticas de seguridad planificadas
+Comprobación de dependencias utilizadas por el proyecto.
+Control de versiones de dependencias.
+Exclusión de archivos con credenciales.
+Uso de .gitignore.
+Gestión de secretos mediante variables de entorno.
+Análisis de dependencias y componentes cuando se configure el pipeline.
+
+Referencia: NIST SSDF y OWASP.
+
+Evidencias previstas:
+
+Dockerfile;
+### 3.4 Probar
+
+Las pruebas permitirán comprobar tanto las funcionalidades como los controles de seguridad implementados en Nómina Fácil.
+
+El equipo contempla pruebas unitarias y de integración dentro de los requisitos actuales del proyecto.
+
+Además, los requisitos de seguridad deberán disponer de alguna forma de comprobación.
+
+Pruebas de seguridad previstas
+
+Entre los escenarios que se pretende verificar se encuentran:
+
+- Un trabajador no puede consultar información perteneciente a otro trabajador.
+- Un trabajador no puede acceder a funciones destinadas exclusivamente a RR.HH.
+- Una sesión cerrada no puede continuar utilizándose.
+- Los datos introducidos en formularios son validados.
+- Los errores no muestran información técnica o datos sensibles.
+- Los cambios críticos quedan registrados cuando corresponda.
+- Las credenciales y secretos no forman parte del código fuente.
+
+Referencia: OWASP ASVS.
+
+OWASP ASVS proporciona precisamente una base para probar los controles técnicos de seguridad utilizados para proteger aplicaciones web.
+
+Evidencias previstas:
+
+- resultados de pruebas;
+- ejecución del pipeline;
+- resultado de pruebas de autorización;
+- capturas o registros de ejecución.
+### 3.5 Publicar
+
+Antes de considerar una versión como candidata para publicación, deberá verificarse que los controles y pruebas definidos para dicha versión hayan sido ejecutados satisfactoriamente.
+
+Prácticas de seguridad planificadas
+Verificar que las pruebas definidas se ejecuten correctamente.
+Revisar las dependencias utilizadas.
+Evitar credenciales en los artefactos.
+Identificar claramente las versiones publicadas.
+Mantener trazabilidad entre los cambios de código y los elementos de trabajo correspondientes.
+
+Referencia: NIST SSDF.
+
+Esta fase busca evitar que una nueva versión se considere preparada para despliegue sin haber pasado previamente por los controles acordados por el equipo.
+
+Evidencias previstas:
+
+- resultado satisfactorio del pipeline;
+- Pull Request aprobado;
+- registro de versión;
+- artefacto o imagen resultante, cuando corresponda.
+
+  
+### 3.6 Desplegar
+
+En la etapa de despliegue se instalará la versión validada de Nómina Fácil en el entorno definido por el equipo.
+
+En vuestro documento existe actualmente una propuesta que contempla Docker, Supabase y Vercel. Antes de la entrega final deberá definirse claramente qué componente será desplegado en cada plataforma.
+
+Prácticas de seguridad planificadas
+Separación entre código y secretos.
+Variables de entorno para configuración sensible.
+Uso de comunicaciones protegidas en entornos publicados.
+Configuración segura del entorno.
+Restricción de accesos administrativos.
+Evitar credenciales directamente en imágenes de contenedor o repositorios.
+
+Referencias: OWASP ASVS y NIST SSDF.
+
+Evidencias previstas:
+
+configuración del entorno;
+variables configuradas de manera segura;
+Dockerfile;
+ejecución del despliegue;
+comprobación de la aplicación desplegada. 
+
+### 3.7 Operar
+
+Durante la operación se buscará mantener el sistema disponible y proteger los datos gestionados por Nómina Fácil.
+
+Esta fase adquiere especial importancia debido a que el sistema contempla datos personales, salariales, financieros y médicos.
+
+Prácticas de seguridad planificadas
+Control de acceso basado en roles.
+Aplicación de mínimo privilegio.
+Gestión y revocación de accesos.
+Copias de seguridad.
+Actualización de dependencias.
+Gestión de incidentes.
+Separación de funciones administrativas.
+
+Referencias: ISO/IEC 27001 y OWASP ASVS.
+
+Evidencias previstas:
+
+configuración de roles;
+procedimiento de respaldo;
+procedimiento de recuperación;
+registros de operación.
+
+### 3.8 Monitorizar
+
+La fase de monitorización permitirá detectar eventos importantes relacionados tanto con el funcionamiento como con la seguridad del sistema.
+
+Nómina Fácil ya contempla dentro de sus requisitos actuales el registro de auditoría, trazabilidad, monitorización y registro de eventos.
+
+Eventos previstos para monitorización
+intentos de autenticación relevantes;
+fallos de autorización;
+modificaciones de información crítica;
+cambios en información bancaria;
+operaciones administrativas relevantes;
+eventos de seguridad;
+errores del sistema.
+
+También deberá evitarse almacenar contraseñas, tokens u otros datos sensibles innecesarios en los registros.
+
+OWASP indica que el registro de eventos de aplicación resulta útil para seguridad, auditoría, investigación de incidentes y monitorización, y señala además la necesidad de evitar determinados datos sensibles en los logs.
+
+Evidencias previstas:
+
+logs de aplicación;
+registros de auditoría;
+eventos de autenticación;
+registros de modificaciones críticas.
+- archivos de dependencias;
+- gitignore;
+- resultado del proceso de construcción;
+- ejecución del workflow cuando se encuentre implementado.
+
+
+
+
 ## 4. Alcance funcional
 
 ### 4.1 Administración de empleados
