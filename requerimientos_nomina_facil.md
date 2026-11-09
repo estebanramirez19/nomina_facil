@@ -619,6 +619,129 @@ Criterios de aceptación:
 - se registra el historial de modificación
 - requiere autorización y auditoría
 
+### Historia 5: Gestión de trabajador
+
+Como administrador de RR.HH.,
+ quiero registrar y actualizar la información de los trabajadores,
+ para mantener correctamente sus antecedentes personales y laborales.
+
+Criterios de aceptación
+- El sistema debe permitir registrar los datos obligatorios del trabajador.
+- Debe validar los datos antes de almacenarlos.
+- Solo usuarios autorizados pueden crear o modificar trabajadores.
+- Los cambios relevantes deben quedar registrados.
+- Cada trabajador debe quedar asociado a su información laboral correspondiente.
+
+La administración de empleados ya contempla datos personales, RUT, contacto, cargo, contrato, jornada, centro de costes, cuenta bancaria y estado laboral.
+
+### Historia 6: Gestión de contrato
+
+Como administrador de RR.HH.,
+ quiero registrar y gestionar los contratos de los trabajadores,
+ para mantener actualizada su información contractual.
+
+Criterios de aceptación
+- Cada contrato debe estar asociado a un trabajador.
+- Solo usuarios autorizados pueden crear o modificar contratos.
+- El sistema debe validar la información obligatoria.
+- Las modificaciones relevantes deben quedar registradas.
+- La información contractual debe tener acceso restringido.
+
+Los contratos están expresamente considerados dentro de los requisitos del proyecto.
+
+### Historia 7: Registro de asistencia
+
+Como trabajador,
+ quiero registrar mi entrada y salida laboral,
+ para mantener un control de mi asistencia.
+
+Criterios de aceptación
+- El trabajador debe estar identificado en el sistema.
+- El sistema debe registrar entrada y salida.
+- El registro debe quedar asociado al trabajador correspondiente.
+- El trabajador no debe poder modificar la asistencia de otro empleado.
+- RR.HH. debe poder consultar los registros según sus permisos.
+
+El registro de entrada y salida está incluido en vuestro objetivo y requisitos funcionales.
+
+### Historia 8: Gestión de horas extraordinarias
+
+Como administrador de RR.HH.,
+ quiero gestionar las horas extraordinarias de los trabajadores,
+ para incorporarlas correctamente al proceso de remuneración.
+
+Criterios de aceptación
+- Las horas extraordinarias deben estar asociadas al trabajador correspondiente.
+- Deben estar relacionadas con un periodo.
+- Solo usuarios autorizados pueden gestionarlas.
+- Las horas correspondientes deben poder considerarse en el proceso de remuneración.
+- Las modificaciones deben mantener trazabilidad.
+
+Las horas extra están contempladas en el alcance de remuneraciones junto con sueldo, bonos, descuentos, asignaciones y beneficios.
+
+### Historia 9: Gestión de vacaciones
+
+Como trabajador,
+ quiero consultar la información correspondiente a mis vacaciones,
+ para conocer mi situación de vacaciones dentro de la empresa.
+
+Criterios de aceptación
+- El trabajador debe estar autenticado.
+- Solo puede consultar su propia información.
+- La información debe estar asociada al trabajador correspondiente.
+- RR.HH. puede acceder únicamente según los permisos asignados.
+- Las operaciones administrativas deben estar protegidas por autorización.
+
+La gestión de vacaciones aparece dentro del objetivo funcional de vuestro proyecto.
+
+
+### Historia 10: Gestión de cotizaciones previsionales
+
+Como administrador de RR.HH.,
+ quiero registrar las cotizaciones previsionales de los trabajadores,
+ para mantener actualizada su información previsional por periodo.
+
+Criterios de aceptación
+- Las cotizaciones deben estar asociadas al trabajador correspondiente.
+- Deben quedar registradas por periodo.
+- Solo usuarios autorizados pueden registrar o modificar información.
+- El trabajador solo puede consultar sus propias cotizaciones.
+- Los cambios relevantes deben mantener trazabilidad.
+
+Aquí tienes bastante material porque vuestro proyecto contempla salud, AFP, AFC, APV e historial de cotizaciones, entre otros elementos.
+
+### Historia 11: Gestión de finiquito
+
+Como administrador de RR.HH.,
+ quiero gestionar el finiquito de un trabajador,
+ para registrar adecuadamente el término de su relación laboral.
+
+Criterios de aceptación
+- El finiquito debe asociarse al trabajador correcto.
+- Solo usuarios autorizados pueden gestionar esta información.
+- La operación debe quedar registrada.
+- La información debe mantenerse protegida.
+- El estado laboral del trabajador debe mantenerse coherente con la operación realizada.
+
+Finiquitos, despidos y renuncias voluntarias están contemplados entre los requisitos funcionales de Nómina Fácil.
+
+### Historia 12: Auditoría y trazabilidad
+
+Esta, en mi opinión, es una de las historias más importantes para vuestro proyecto DevSecOps.
+
+Como usuario de Seguridad/Auditoría,
+ quiero consultar los registros de operaciones y eventos relevantes,
+ para verificar la trazabilidad de las acciones realizadas en el sistema.
+
+Criterios de aceptación
+- Solo usuarios autorizados pueden consultar la información de auditoría.
+- Los accesos e interacciones sensibles definidos por el sistema deben quedar registrados.
+- Los cambios de nómina y cuentas bancarias deben conservar su historial.
+- La actividad debe poder relacionarse con el usuario y módulo correspondiente.
+- Los registros deben estar protegidos frente a accesos no autorizados.
+
+
+
 ## 15. Recomendaciones para el desarrollo
 
 - usar Node.js con buenas prácticas de seguridad
